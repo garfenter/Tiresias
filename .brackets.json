@@ -1,0 +1,15 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-device/src/windows/DeviceProxy.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-device/tests/tests.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-device/src/tizen/DeviceProxy.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-device/src/ubuntu/device.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-device/www/device.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-splashscreen/src/blackberry10/index.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-splashscreen/src/browser/SplashScreenProxy.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-splashscreen/src/tizen/SplashScreenProxy.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-splashscreen/tests/tests.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/www/js/app.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-statusbar/src/browser/statusbar.js"
+    ]
+}
