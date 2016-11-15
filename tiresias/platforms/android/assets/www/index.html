@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="lib/ionic/css/ionic.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+
+    <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
+    <link href="css/ionic.app.css" rel="stylesheet">
+    -->
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="lib/ngCordova/dist/ng-cordova.js"></script>
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/functions.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/directives.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/main-controller.js"></script>
+    <script src="lib/jquery/dist/jquery.min.js"></script>
+  </head>
+  <body ng-app="starter" class="platform-android platform-cordova platform-webview">
+
+    <ion-pane ng-controller="MainController as main">
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Lector de DPI - Prequal </h1>                
+      </ion-header-bar>
+      <ion-content>
+        <div style="float: right; height: 100px;" ng-if="user !== null">
+            <span class="item-avatar">          
+                {{user.name}}
+                <img ng-src="{{user.picture}}">                
+            </span>
+            <a class="button" ng-click="showLogOutMenuFacebook();">Salir</a>
+        </div>
+        <div id="fb-root"></div>
+        <!--img src="img/prequal%20logo%20HORIZONTAL%20G.jpg" class="full-image"-->        
+        <div ng-if="step === 0">
+            <h1>¡Bievenido!</h1>  
+            <p>
+                Debes autenticarte para poder ingresar a la plataforma de Prequal, haz click en cualquiera de las siguientes opciones:                
+            </p>
+            <a class="button button-block facebook-sign-in" ng-click="facebookSignIn()">Ingresa con Facebook</a>
+            <a class="button button-block btn-google" ng-click="googleSignIn()">Ingresa con Google</a>
+        </div>
+        <div ng-if="step === 1">
+          <div class="card" ng-if="readed">
+              <div class="item item-text-wrap">
+                    <label class="item item-input">
+                      <span class="input-label">DPI</span>
+                      <span>{{person.dpiNumber}}</span>
+                    </label>
+                    <label class="item item-input">
+                      <span class="input-label">Nombre</span>
+                      <span>{{person.firstName}} {{person.secondName}}</span>
+                    </label><label class="item item-input">
+                      <span class="input-label">Apellido</span>
+                      <span>{{person.firstLastName}} {{person.secondLastName}}</span>
+                    </label><label class="item item-input">
+                      <span class="input-label">Genero</span>
+                      <span>{{person.genre}}</span>
+                    </label>
+                    </label><label class="item item-input">
+                      <span class="input-label">Pais</span>
+                      <span>{{person.country}}</span>
+                    </label>
+                    <label class="item item-input">
+                      <span class="input-label">Fecha de nacimiento</span>
+                      <span>{{person.birthDate}}</span>
+                    </label>
+              </div>
+          </div>
+          <div class="card" ng-if="readed">
+              <div class="item item-text-wrap">
+                    <label class="item item-input">
+                      <span class="input-label">NIT</span>
+                      <input type="text" ng-model="person.nit"/>
+                    </label>
+                    <label class="item item-input">
+                      <span class="input-label">Correo</span>
+                      <input type="email" ng-model="person.email"/>
+                    </label>
+                    <label class="item item-input">
+                      <span class="input-label">Direccion de casa</span>
+                      <input type="text" ng-model="person.homeAddress"/>
+                    </label>
+                    <label class="item item-input">
+                      <span class="input-label">Telefono de casa</span>
+                      <input type="number" ng-model="person.homePhone"/>
+                    </label>
+                    <label class="item item-input">
+                      <span class="input-label">Direccion de trabajo</span>
+                      <input type="text" ng-model="person.workAddress"/>
+                    </label>
+                    <label class="item item-input">
+                      <span class="input-label">Lugar de trabajo</span>
+                      <input type="text" ng-model="person.workPlace"/>
+                    </label>
+                    <label class="item item-input">
+                      <span class="input-label">Telefono de trabajo</span>
+                      <input type="number" ng-model="person.workPhone"/>
+                    </label>
+                    </label><label class="item item-input">
+                      <span class="input-label">Ocupacion y oficio</span>
+                      <input type="text" ng-model="person.profession"/>
+                    </label>
+                    <label class="item item-input">
+                      <span class="input-label">Grado escolaridad</span>
+                      <input type="text" ng-model="person.grade"/>
+                    </label>
+                    <label class="item item-input">
+                      <span class="input-label">Ingreso aproximado</span>
+                      <input type="number" ng-model="person.income"/>
+                    </label>
+                    <label class="item item-input">
+                      <span class="input-label">Egreso aproximado</span>
+                      <input type="number" ng-model="person.egress"/>
+                    </label>
+              </div>
+          </div>
+          <button class="button button-block button-positive" ng-click="read();" ng-if="!readed">
+            Leer
+          </button>
+            <div class="button-bar">
+              <button class="button button-primary" ng-click="read();" ng-if="readed">
+                Leer otro dpi
+              </button>
+              <button class="button button-positive" ng-click="setStep(2);" ng-if="readed">
+                Siguiente
+              </button>
+            </div>
+        </div>
+        <div ng-show="step === 2">
+          <div class="text-center">  
+            <h1>Firma</h1>
+          </div>
+          <div class="text-center">
+              <button class="button button-primary" ng-click="clearCanvas();">
+                Limpiar
+              </button><br/>
+              <canvas id="signature-drawing" class="draw-area" width="400" height="300" drawing>
+              </canvas>
+           </div>
+            <div class="button-bar">
+               <button class="button button-primary" ng-click="setStep(1);">
+                    Atrás
+               </button>
+               <button class="button button-positive" ng-click="setStep(3);">
+                    Siguiente
+               </button>
+            </div>
+        </div>
+        <div ng-if="step === 3">
+            <div class="text-center">
+                <img data-ng-src="{{dpiImgURI}}" data-err-src="img/prequal-logo-vertical.png" class="full-image"/>
+            
+                <button class="button button-positive" ng-click="takeDpiPicture();">
+                    Tomar fotografía del DPI
+                </button>
+            </div>
+            <hr/>
+            <div class="button-bar">
+               <button class="button button-primary" ng-click="setStep(2);">
+                    Atrás
+               </button>
+               <button class="button button-positive" ng-click="setStep(4);" ng-disabled="!dpiImgURI">
+                    Siguiente
+               </button>
+            </div>
+        </div>
+        <div ng-if="step === 4">
+            <div class="text-center">
+                <img data-ng-src="{{personImgURI}}" data-err-src="img/prequal-logo-vertical.png" class="full-image"/>
+                <button class="button button-positive" ng-click="takePersonPicture();">
+                    Tomar fotografía de la persona
+                </button>
+            </div>
+            <hr/>
+            <div class="button-bar">
+               <button class="button button-primary" ng-click="setStep(3);">
+                    Atrás
+               </button>
+               <button class="button button-positive" ng-click="send();" ng-disabled="!personImgURI">
+                    Enviar datos
+               </button>
+            </div>
+        </div>
+        <div ng-if="step === 5">
+            <h1>Los datos fueron enviados exitosamente</h1>
+            <button class="button button-positive" ng-click="restart();">
+                Nuevo
+            </button>
+        </div>   
+      </ion-content>
+    </ion-pane>
+  </body>
+</html>

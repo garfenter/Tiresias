@@ -1,0 +1,7 @@
+{
+    "jscodehints.detectedExclusions": [
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-device/src/tizen/DeviceProxy.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/platforms/android/assets/www/lib/jquery/src/event/trigger.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/www/js/app.js"
+    ]
+}

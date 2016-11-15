@@ -10,6 +10,11 @@
         "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-splashscreen/src/tizen/SplashScreenProxy.js",
         "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-splashscreen/tests/tests.js",
         "C:/projects/dpi-reader/Tiresias/tiresias/www/js/app.js",
-        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-statusbar/src/browser/statusbar.js"
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-statusbar/src/browser/statusbar.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-statusbar/src/windows/StatusBarProxy.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-statusbar/tests/tests.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/cordova-plugin-statusbar/www/statusbar.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/ionic-plugin-keyboard/src/blackberry10/index.js",
+        "C:/projects/dpi-reader/Tiresias/tiresias/plugins/ionic-plugin-keyboard/src/windows/KeyboardProxy.js"
     ]
 }
